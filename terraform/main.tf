@@ -136,10 +136,10 @@ module "web_server" {
   source = "./modules/web-server"
 
   project_name = local.project_name
-  ami = aws_instance.web.ami
+  ami = data.aws_ami.ansible-name.id
   key_name = "~/.ssh/aws"
-  vpc_security_group_ids = aws_instance.web.vpc_security_group_ids
-  subnet_id = aws_instance.web.subnet_id
+  vpc_security_group_ids = [aws_security_group.web.id]
+  subnet_id = aws_subnet.web.id
 }
 
 
