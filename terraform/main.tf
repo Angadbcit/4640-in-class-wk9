@@ -120,17 +120,28 @@ resource "aws_vpc_security_group_egress_rule" "web-egress" {
 
 # create the ec2 instance
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
-resource "aws_instance" "web" {
-  ami                    = data.aws_ami.ansible-name.id
-  instance_type          = "t3.micro"
-  key_name               = "aws-4640"
-  vpc_security_group_ids = [aws_security_group.web.id]
-  subnet_id              = aws_subnet.web.id
+#resource "aws_instance" "web" {
+#  ami                    = data.aws_ami.ansible-name.id
+#  instance_type          = "t3.micro"
+#  key_name               = "aws-4640"
+#  vpc_security_group_ids = [aws_security_group.web.id]
+#  subnet_id              = aws_subnet.web.id
+#
+#  tags = {
+#    Name = "Web"
+#  }
+#}
 
-  tags = {
-    Name = "Web"
-  }
+module "web_server" {
+  source = "modules/web-server"
+
+  project_name = locals.project_name
+  ami = data.aws_ami.ansible-name.id
+  key_name = aws
+  vpc_security_group_ids = [aws_security_group.web.id]
+  subnet_id = aws_subnet.web.id
 }
+
 
 # print public ip and dns to terminal
 # https://developer.hashicorp.com/terraform/language/values/outputs
@@ -142,3 +153,17 @@ output "instance_ip_addr" {
   }
 }
 
+output "aws_instance_ip" {
+    description = "Instance IP Address"
+    value = module.web_server.aws_instance_ip_address
+}
+
+output "aws_instance_dns" {
+    description = "Instance DNS Name"
+    value = module.web_server.aws_dns_name
+}
+
+output "aws_instance_id" {
+    description = "Instance ID"
+    value = module.web-server.aws_instance_id
+}
