@@ -36,3 +36,38 @@ cd packer
 packer init .
 packer build .
 ```
+
+## variables file
+
+Following is how we make variables for our module in terraform.
+
+1. project name
+
+   ```hcl
+   
+   ```
+
+2. ami
+
+   ```hcl
+   ```
+
+3. instance type (with t3.micro default)
+
+   ```hcl
+   ```
+
+4. key name
+
+   ```hcl
+   ```
+
+5. vpc security group ids (list(string))
+
+   ```hcl
+   ```
+
+6. subnet id
+
+   ```hcl
+   ```

@@ -1,29 +1,29 @@
-variable "variable1" {
-  description = "Description of variable 1"
+variable "project name" {
+  description = "project name of the webserver"
   type        = string
 }
 
-variable "variable2" {
-  description = "Description of variable 2"
+variable "ami" {
+  description = "ami used for the webserver"
+  type        = any
+}
+
+variable "instance type" {
+  description = "instance type of the webserver"
   type        = string
 }
 
-variable "variable3" {
-  description = "Description of variable 3"
+variable "key name" {
+  description = "ssh key name for the webserver"
   type        = string
 }
 
-variable "variable4" {
-  description = "Description of variable 4"
+variable "vpc security group ids" {
+  description = "vpc security group used by the webserver"
   type        = string
 }
 
-variable "variable5" {
-  description = "Description of variable 5"
-  type        = string
-}
-
-variable "variable6" {
-  description = "Description of variable 6"
+variable "subnet id" {
+  description = "subnet of the webserver"
   type        = string
 }
