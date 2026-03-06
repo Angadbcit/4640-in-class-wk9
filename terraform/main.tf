@@ -160,7 +160,7 @@ output "aws_instance_ip" {
 
 output "aws_instance_dns" {
     description = "Instance DNS Name"
-    value = module.web_server.aws_dns
+    value = module.web_server.aws_instance_dns
 }
 
 output "aws_instance_id" {
