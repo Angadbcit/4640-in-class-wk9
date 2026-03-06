@@ -26,3 +26,13 @@ This will add the newly created key to our logged in aws account.
 ```
 
 This removes the key from our aws account, as it is no longer needed.
+
+## Infitializing
+
+Using packer and anisble configurations create the AMI.
+
+```bash
+cd packer
+packer init .
+packer build .
+```
