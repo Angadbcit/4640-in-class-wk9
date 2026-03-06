@@ -21,7 +21,7 @@ variable "key_name" {
 
 variable "vpc_security_group_ids" {
   description = "vpc security group used by the webserver"
-  type        = string
+  type        = list(string)
 }
 
 variable "subnet_id" {
