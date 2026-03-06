@@ -136,8 +136,8 @@ module "web_server" {
   source = "./modules/web-server"
 
   project_name = local.project_name
-  ami = data.aws_ami.ansible-name.id
-  key_name = "~/.ssh/aws"
+  ami = data.aws_ami.ansible-nginx.id
+  key_name = "aws"
   vpc_security_group_ids = [aws_security_group.web.id]
   subnet_id = aws_subnet.web.id
 }
@@ -155,12 +155,12 @@ module "web_server" {
 
 output "aws_instance_ip" {
     description = "Instance IP Address"
-    value = module.web_server.aws_instance_ip_address
+    value = module.web_server.aws_instance_ip
 }
 
 output "aws_instance_dns" {
     description = "Instance DNS Name"
-    value = module.web_server.aws_dns_name
+    value = module.web_server.aws_dns
 }
 
 output "aws_instance_id" {
