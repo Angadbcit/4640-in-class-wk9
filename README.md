@@ -136,3 +136,7 @@ Following is how we make output variables for our module in terraform.
 ## Logic
 
 The [variables.tf](4640-in-class-wk9\terraform\modules\web-server\variables.tf) defines input variables that are needed for our webserver module to function. These are defined with values in the root [main.tf](4640-in-class-wk9\terraform\main.tf). It takes these defined values and creates a webserver as configured in the [main.tf](4640-in-class-wk9\terraform\modules\web-server\main.tf) of the module. This will lead to some outputs that may be useful for us and so they can be called by the variable names defined in the [outputs.tf](4640-in-class-wk9\terraform\modules\web-server\outputs.tf) of the module.
+
+
+
+![Lab Complete](images/wk9-proof.png)
